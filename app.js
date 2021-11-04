@@ -27,7 +27,6 @@ const PORT = process.env.PORT || 8080;
 require('./config/passport')(passport);
 
 
-
 //CORS
 app.use(cors());
 
@@ -50,10 +49,13 @@ app.use(passport.session());
 
 app.use('/users', users);
 
+
 //Index Route
 app.get('/', function(req,res, next){
     res.send('Invalid')
 });
+
+
 
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname, 'public/index.html'))
